@@ -3,6 +3,7 @@ const db = require( './utilities/database');
 /* const Countries = require('./models/countries.models')
  */
 const Users = require ('./models/users.models');
+const cors = require ('cors')
 
 require('dotenv').config();
 const PORT = process.env.PORT || 8000;
@@ -16,6 +17,7 @@ db.sync()
   .catch( ( err ) => console.log( err ) );
 
 const app = express ();
+app.use(cors());
 app.use(express.json());
 
 /* app.get ( '/', (req, res) => {
